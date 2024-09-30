@@ -1,76 +1,40 @@
-// /*
-// Assessment Requirements
-// 1. Create a variable that can hold a number of NFT's. What type of variable might this be?
-// 2. Create an object inside your mintNFT function that will hold the metadata for your NFTs. 
-//    The metadata values will be passed to the function as parameters. When the NFT is ready, 
-//    you will store it in the variable you created in step 1
-// 3. Your listNFTs() function will print all of your NFTs metadata to the console (i.e. console.log("Name: " + someNFT.name))
-// 4. For good measure, getTotalSupply() should return the number of NFT's you have created
-// */
-
-// // create a variable to hold your NFT's
-
-// // this function will take in some values as parameters, create an
-// // NFT object using the parameters passed to it for its metadata, 
-// // and store it in the variable above.
-// function mintNFT () {
-
-// }
-
-// // create a "loop" that will go through an "array" of NFT's
-// // and print their metadata with console.log()
-// function listNFTs () {
-
-// }
-
-// // print the total number of NFTs we have minted to the console
-// function getTotalSupply() {
-
-// }
-
-// // call your functions below this line
-// Create a variable to hold your NFTs
-let nftCollection = [];
-
-// This function will take in some values as parameters, create an
-// NFT object using the parameters passed to it for its metadata,
+// create a variable to hold your NFT's
+const NFTdata = [];
+// this function will take in some values as parameters, create an
+// NFT object using the parameters passed to it for its metadata, 
 // and store it in the variable above.
-function StudentNFT(S_name, S_Age, S_City, S_Salary) {
-    const nft = {
-        name: S_name,
-        Age: S_Age,
-        City: S_City,
-        Salary: S_Salary
+function mintNFT (_Name, _ShirtType, _EyeColor, _Bling) {
+    const NFT = {
+        "Name" : _Name,
+        "Shirt" : _ShirtType,
+        "Eyecolor" : _EyeColor,
+        "Bling" : _Bling
     };
-    nftCollection.push(nft);
+    NFTdata.push(NFT);
+    console.log("Minted : " + _Name); 
 }
 
-// Create a "loop" that will go through an "array" of NFT's
+// create a "loop" that will go through an "array" of NFT's
 // and print their metadata with console.log()
-function listNFTs() {
-    nftCollection.forEach((nft, index) => {
-        console.log(NFT ${index + 1}:);
-        console.log(`  Name: ${nft.name}`);
-        console.log(`  S_Age: ${nft.Age}`);
-        console.log(`  S_City: ${nft.City}`);
-        console.log(`  S_Salary: ${nft.Salary}`);
-    });
-}    
-
-// Print the total number of NFTs we have minted to the console
-function getTotalSupply() {
-    return nftCollection.length;
+function listNFTs () {
+    for (let i = 0; i < NFTdata.length; i++) {
+        console.log("\nId:\t\t\t" + (i+1));
+        console.log("Name:\t\t" + NFTdata[i].Name);
+        console.log("Shirt Type:\t" + NFTdata[i].Shirt);
+        console.log("Eye Color:\t" + NFTdata[i].Eyecolor);
+        console.log("Bling:\t\t" + NFTdata[i].Bling);
+    }
 }
 
-// Call your functions below this line
+// print the total number of NFTs we have minted to the console
+function getTotalSupply() {
+    console.log(NFTdata.length);
+}
 
-// Minting some NFTs
-StudentNFT("Tom", "34", "Mumbai", "34k");
-StudentNFT("Sam", "32", "Delhi", "76k");
-StudentNFT("Joy", "29", "Surat", "65k");
-
-// Listing all NFTs
+// call your functions below this line
+mintNFT("sujal", "gucci", "golden", "Gold Chain");
+mintNFT("adiii", "prada", "green", "Gold Chain");
+mintNFT("lokii", "chanel", "hazel", "Gold Chain");
+mintNFT("michael", "louis vitton", "gray", "Gold Chain");
 listNFTs();
-
-// Getting the total supply of NFTs
-console.log(Total NFTs minted: ${getTotalSupply()});
+getTotalSupply();
